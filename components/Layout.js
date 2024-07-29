@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router'; // Import useRouter hook
+import { useRouter } from 'next/router';
 import { Container, AppBar, Toolbar, Typography, IconButton, Drawer, List, ListItem, ListItemIcon, ListItemText, Divider } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import DashboardIcon from '@mui/icons-material/Dashboard'; // Import DashboardIcon
-import HomeIcon from '@mui/icons-material/Home';
+import DashboardIcon from '@mui/icons-material/Dashboard'; 
 import InfoIcon from '@mui/icons-material/Info';
 import SettingsIcon from '@mui/icons-material/Settings';
 import UserData from '@mui/icons-material/AccountCircle';
@@ -12,14 +11,14 @@ const drawerWidth = 240;
 
 const Layout = ({ children }) => {
   const [open, setOpen] = useState(true);
-  const router = useRouter(); // Initialize useRouter
+  const router = useRouter(); 
 
   const toggleDrawer = () => {
     setOpen(!open);
   };
 
   const handleNavigation = (path) => {
-    router.push(path); // Use router to navigate to the specified path
+    router.push(path); 
   };
 
   return (
@@ -35,7 +34,7 @@ const Layout = ({ children }) => {
           <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer}>
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6">My Dashboard</Typography>
+          <Typography variant="h6" fontFamily={'Roboto, Arial, sans-serif'}>My Dashboard</Typography>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -45,7 +44,7 @@ const Layout = ({ children }) => {
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box',
-            backgroundColor: '#f4f4f4', // Add background color to the sidebar
+            backgroundColor: '#f4f4f4', 
           },
         }}
         variant="persistent"
