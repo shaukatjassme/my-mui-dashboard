@@ -6,6 +6,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import InfoIcon from '@mui/icons-material/Info';
 import SettingsIcon from '@mui/icons-material/Settings';
 import UserData from '@mui/icons-material/AccountCircle';
+import  Store  from '@mui/icons-material/Store';
 
 const drawerWidth = 240;
 
@@ -63,13 +64,13 @@ const Layout = ({ children }) => {
               <ListItemIcon><UserData /></ListItemIcon>
               <ListItemText primary="Add New User Data" />
             </ListItem>
-            <ListItem button onClick={() => handleNavigation('/about')}>
+            <ListItem button onClick={() => handleNavigation('/fakeapi')}>
               <ListItemIcon><InfoIcon /></ListItemIcon>
-              <ListItemText primary="About" />
+              <ListItemText primary="Api Data" />
             </ListItem>
-            <ListItem button onClick={() => handleNavigation('/settings')}>
-              <ListItemIcon><SettingsIcon /></ListItemIcon>
-              <ListItemText primary="Settings" />
+            <ListItem button onClick={() => handleNavigation('/fakeStoreUsers')}>
+              <ListItemIcon><Store /></ListItemIcon>
+              <ListItemText primary="Store Users" />
             </ListItem>
           </List>
           <Divider />

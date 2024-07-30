@@ -23,8 +23,8 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <Box my={4}>
-      <Typography variant="h4" color="primary" gutterBottom>Dashboard</Typography>
+    <Box my={0}>
+      <Typography variant="h4"  gutterBottom>Dashboard</Typography>
       <Grid container spacing={3}>
         {data.map((item) => (
           <Grid item xs={12} sm={6} md={4} key={item.id}>

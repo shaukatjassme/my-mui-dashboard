@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import { supabase } from '../lib/supabaseClient';
-import { Box, Button, TextField, Typography } from '@mui/material';
+import { Box, Button, TextField, Typography, Alert } from '@mui/material';
 
 const AddDashboardItem = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setSuccessMessage(''); // Reset the success message
 
     try {
       const { data, error } = await supabase
@@ -23,6 +25,7 @@ const AddDashboardItem = () => {
       console.log('Data added:', data);
       setTitle('');
       setDescription('');
+      setSuccessMessage('Item added successfully!'); // Set the success message
     } catch (error) {
       console.error('Error adding data:', error);
     } finally {
@@ -31,8 +34,9 @@ const AddDashboardItem = () => {
   };
 
   return (
-    <Box my={4}>
+    <Box >
       <Typography variant="h5" gutterBottom>Add Dashboard Item</Typography>
+      {successMessage && <Alert severity="success">{successMessage}</Alert>} {/* Display success message */}
       <form onSubmit={handleSubmit}>
         <TextField
           label="Title"
