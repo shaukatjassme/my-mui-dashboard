@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { useRouter } from 'next/router';
 import { AppBar, Toolbar, Typography, IconButton, Drawer, List, ListItem, ListItemIcon, ListItemText, Divider, Badge, Snackbar } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -12,7 +12,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 const drawerWidth = 240;
 
-const DrawerItems = React.memo(({ handleNavigation }) => (
+const DrawerItems = memo(({ handleNavigation }) => (
   <List>
     <ListItem button onClick={() => handleNavigation('/dashboard')}>
       <ListItemIcon><DashboardIcon /></ListItemIcon>
@@ -36,6 +36,8 @@ const DrawerItems = React.memo(({ handleNavigation }) => (
     </ListItem>
   </List>
 ));
+
+DrawerItems.displayName = 'DrawerItems';
 
 const Layout = ({ children }) => {
   const [open, setOpen] = useState(true);
@@ -190,5 +192,7 @@ const Layout = ({ children }) => {
     </div>
   );
 };
+
+Layout.displayName = 'Layout';
 
 export default Layout;
